@@ -39,11 +39,12 @@ app.post('/auth/login', loginValidation, handleValidationErrors, UserControllers
 app.post('/auth/register', registerValidation, handleValidationErrors, UserControllers.register);
 
 app.get('/auth/me', checkAuth, UserControllers.getMe);
-app.post('/posts', checkAuth, postCreateValidation, PostController.create);
+
+app.post('/posts', checkAuth, postCreateValidation, handleValidationErrors, PostController.create);
 app.get('/posts', checkAuth, PostController.getAll);
 app.get('/posts/:id', checkAuth, PostController.getOne);
 app.delete('/posts/:id', checkAuth, PostController.remove);
-app.patch('/posts/:id', checkAuth, postCreateValidation, PostController.update);
+app.patch('/posts/:id', checkAuth, postCreateValidation, handleValidationErrors, PostController.update);
 
 app.post('/upload', checkAuth, upload.single('image'), (req, res) => {
   res.json({

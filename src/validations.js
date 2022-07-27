@@ -21,6 +21,6 @@ export const postCreateValidation = [
   body('text', 'enter the text').isLength({ min: 10 }).isString(),
   body('tags', 'wrong data format (enter array of strings)')
     .optional()
-    .isString(),
+    .isArray(),
   body('imageUrl', 'wrong url)').optional().isString(),
 ];
