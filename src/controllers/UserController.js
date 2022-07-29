@@ -1,6 +1,7 @@
 import bcrypt from 'bcrypt';
 import UserModel from '../models/User.js';
 import jwt from 'jsonwebtoken';
+import { SECRET_KEY } from '../constants.js'
 
 export const register = async (req, res) => {
   try {
@@ -21,7 +22,7 @@ export const register = async (req, res) => {
       {
         _id: user._id,
       },
-      'secret123',
+      SECRET_KEY,
       { expiresIn: '30d' }
     );
 
@@ -65,7 +66,7 @@ export const login = async (req, res) => {
       {
         _id: user._id,
       },
-      'secret123',
+      SECRET_KEY,
       { expiresIn: '30d' }
     );
 

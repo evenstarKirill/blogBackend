@@ -14,7 +14,7 @@ import handleValidationErrors from './utils/handleValidationErrors.js'
 
 mongoose
   .connect(
-    'mongodb+srv://admin:admin@cluster0.xs4zwfn.mongodb.net/blog?retryWrites=true&w=majority'
+    'uri'
   )
   .then(() => console.log('db ok'))
   .catch((err) => console.log('db error', err));
